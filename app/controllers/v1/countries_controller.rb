@@ -1,8 +1,13 @@
 class V1::CountriesController < ApplicationController
 
   def index
-    @countries = Country.pluck("name")
-    json_response(@countries)
+    byebug
+    if params[:token] && Token.find_by_token_hash(params[:token])
+      @countries = Country.pluck("name")
+      json_response(@countries)
+    else
+      json_response({:message => "Use a token for access"})
+    end
   end
 
   def show

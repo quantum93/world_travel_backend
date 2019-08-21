@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "sessions#login"
+  post "/login", to: 'sessions#create'
 
   concern :api_base do
     resources :countries

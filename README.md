@@ -36,4 +36,13 @@ _URL segment: a version slug in the resource identifier, e.g. /v1/users/100_
 * Services (job queues, cache servers, search engines, etc.)
 https://www.programmableweb.com/category/countries/api
 
+* Authentication instructions
+_bcrypt authentication way,_
+gem 'bcrypt', '~> 3.1.7'
+
+since we don't have interface in order to add user account, we should do add user account in sql prompt.
+rake db:migrate
+rails c
+user = User.create(:username => "alex", :password => "123456")
+
 * Deployment instructions
