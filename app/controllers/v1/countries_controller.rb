@@ -1,8 +1,12 @@
 class V1::CountriesController < ApplicationController
-
   def index
-    @countries = Country.pluck("name")
-    json_response(@countries)
+    if params[:name]
+      @country = Country.find_by_name(params[:name])
+      json_response(@country.reviews)
+    else
+      @countries = Country.pluck("name")
+      json_response(@countries)
+    end
   end
 
   def show

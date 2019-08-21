@@ -7,7 +7,7 @@ class Country < ApplicationRecord
     .joins(:reviews)
     .group("countries.id")
     .order("reviews_count DESC")
-    # .limit(1)
+    .limit(1)
     )}
 
   scope :most_rates, -> {(
