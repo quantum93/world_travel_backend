@@ -1,5 +1,6 @@
 require 'bcrypt'
 class User < ApplicationRecord
+  has_many :tokens
 
   before_save :encrypt_password
 
@@ -26,6 +27,7 @@ class User < ApplicationRecord
       token_salt = BCrypt::Engine.generate_salt
       token_hash = BCrypt::Engine.hash_secret(Time.new.to_s ,token_salt)
       token = Token.new(:token_salt => token_salt, :token_hash => token_hash)
+      token.user_id = user.id
       token.save!
       {:token => token_hash}
     else

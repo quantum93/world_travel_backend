@@ -1,7 +1,6 @@
 class V1::CountriesController < ApplicationController
 
   def index
-    byebug
     if params[:token] && Token.find_by_token_hash(params[:token])
       @countries = Country.pluck("name")
       json_response(@countries)
