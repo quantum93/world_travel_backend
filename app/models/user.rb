@@ -22,6 +22,7 @@ class User < ApplicationRecord
 
   def self.authenticate(username, password)
     user = User.find_by_username(username)
+    byebug
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
       # send back a token
       token_salt = BCrypt::Engine.generate_salt
