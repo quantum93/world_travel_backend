@@ -28,6 +28,8 @@ _index should be started with 1 rather than 0 in seeds.rb_
 _rake db:seed_
 
 * API Versioning instructions
+https://chriskottom.com/blog/2017/04/versioning-a-rails-api/
+_URL segment: a version slug in the resource identifier, e.g. /v1/users/100_
 
 * How to run the test suite
 

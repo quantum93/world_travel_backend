@@ -1,4 +1,4 @@
-class CountriesController < ApplicationController
+class V1::CountriesController < ApplicationController
 
   def index
     @countries = Country.pluck("name")
