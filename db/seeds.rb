@@ -8,7 +8,7 @@
 Review.destroy_all
 
 195.times do |index|
-  2.times do |index2|
+  rand(5..25).times do |index2|
   Review.create!(user_name: Faker::Name.name,
                           country_id: index + 1,
                           rating: rand(1..10),
