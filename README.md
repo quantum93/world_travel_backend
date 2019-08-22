@@ -23,10 +23,12 @@ _rails g migration add_countries_table_
 _When you try to git clone in other computer,_
 _rake db:create_
 _rake db:migrate_
-_copy countries(name) from '/Users/Guest/Desktop/world_travel_api/countries.csv' DELIMITER ',';_
+_In your psql prompt,
+_copy countries(name) from '/Users/Guest/Desktop/world_travel_backend/countries.csv' DELIMITER ',';_
 _index should be started with 1 rather than 0 in seeds.rb_
 _rake db:seed_
-
+_rails s -p 3001_
+_open in browser http://localhost:3001/v1/countries_
 * API Versioning instructions
 https://chriskottom.com/blog/2017/04/versioning-a-rails-api/
 _URL segment: a version slug in the resource identifier, e.g. /v1/users/100_

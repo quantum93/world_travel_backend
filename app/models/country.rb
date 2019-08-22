@@ -26,4 +26,11 @@ class Country < ApplicationRecord
     # .group("countries.id")
     )}
 
+    scope :all_countries, -> {(
+      select("countries.id, countries.name")
+      .joins(:reviews)
+      .group("countries.id")
+      # .order("name DESC")
+      )}
+
 end

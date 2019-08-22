@@ -11,7 +11,9 @@ class V1::CountriesController < ApplicationController
 
   def show
     @country = Country.find(params[:id].to_str)
-    json_response(@country)
+    # byebug
+    @reviews = Review.where(country_id: @country["id"])
+    json_response([@country, @reviews])
   end
 
   def create
@@ -30,6 +32,18 @@ class V1::CountriesController < ApplicationController
   end
 
 # These two functions are for scopeid,
+  def all_countries
+    @countries = Country.all_countries
+    @return_countries = []
+    @countries.each do |country|
+      country_arr = [country]
+      country_arr.push(Review.where(country_id: country.id))
+      @return_countries.push(country_arr)
+    end
+
+    json_response(@return_countries)
+  end
+
   def popular_country
     @most_reviews = Country.most_reviews
     json_response(@most_reviews)
