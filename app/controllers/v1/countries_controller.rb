@@ -11,7 +11,6 @@ class V1::CountriesController < ApplicationController
 
   def show
     @country = Country.find(params[:id].to_str)
-    # byebug
     @reviews = Review.where(country_id: @country["id"])
     json_response([@country, @reviews])
   end
