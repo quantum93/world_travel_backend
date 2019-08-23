@@ -40,6 +40,7 @@ _rails s_
 * _rails s -p 3001_
 * _For interface, execute rails server with port number 3000 in same machine with interface._
 * _rails s_
+* _copy countries(name) from '/Users/Guest/Desktop/world_travel_api/countries.csv' DELIMITER ',';_
 * _rake db:seed_
 * _rails server -p 3001 (For API server back-end,)_
 * _rails server 3000 (For userinterface side,)_
